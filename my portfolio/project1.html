@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Simple Calculator</title>
+<style>
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+
+  /* Header styling */
+  .header {
+    display: flex;
+    align-items: center;
+    background-color: #f2f2f2;
+    padding: 10px;
+    flex-shrink: 0;
+  }
+  .header img {
+    height: 70px;
+    margin-right: 20px;
+  }
+  .header a {
+    margin-right: 15px;
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+  }
+  .header a:hover {
+    color: #007BFF;
+  }
+
+  /* Main container for the calculator, centered */
+  .main {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* Calculator styling */
+  .calculator {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    width: 340px;
+  }
+
+  .display {
+    width: 100%;
+    height: 50px;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    text-align: right;
+    box-sizing: border-box;
+  }
+
+  /* Use flex layout for button rows */
+  .buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  /* Each row of buttons */
+  .row {
+    display: flex;
+    gap: 10px;
+  }
+
+  button {
+    flex: 1;
+    padding: 15px;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #e0e0e0;
+    transition: background-color 0.2s;
+  }
+
+  button:hover {
+    background-color: #d0d0d0;
+  }
+
+  /* Specific styles for operator and function buttons */
+  .operator {
+    background-color: #f9a825;
+  }
+  .equals {
+    background-color: #388e3c;
+    color: #fff;
+  }
+  .clear {
+    background-color: #d32f2f;
+    color: #fff;
+  }
+</style>
+</head>
+<body>
+<div class="header">
+  <img src="pictureko.png" alt="Logo" />
+  <a href="myhome.html">Home</a>
+  <a href="Aboutme.html">About Me</a>
+  <a href="project1.html">Project1</a>
+  <a href="contact.html">Contact Details</a>
+</div>
+
+<div class="main">
+  <div class="calculator">
+    <input type="text" class="display" id="display" disabled />
+    <div class="buttons">
+      <!-- Row 1 -->
+      <div class="row">
+        <button class="clear" id="clear">C</button>
+        <button data-value="/">&#247;</button>
+        <button data-value="*">&times;</button>
+        <button data-value="-">−</button>
+      </div>
+      <!-- Row 2 -->
+      <div class="row">
+        <button data-value="7">7</button>
+        <button data-value="8">8</button>
+        <button data-value="9">9</button>
+        <button data-value="+">+</button>
+      </div>
+      <!-- Row 3 -->
+      <div class="row">
+        <button data-value="4">4</button>
+        <button data-value="5">5</button>
+        <button data-value="6">6</button>
+        <button class="equals" id="equals">=</button>
+      </div>
+      <!-- Row 4 -->
+      <div class="row">
+        <button data-value="1">1</button>
+        <button data-value="2">2</button>
+        <button data-value="3">3</button>
+        <!-- Empty placeholder for layout -->
+        <button style="visibility: hidden;">&nbsp;</button>
+      </div>
+      <!-- Row 5 -->
+      <div class="row">
+        <button data-value="0" style="flex: 2;">0</button>
+        <button data-value=".">.</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const display = document.getElementById('display');
+  const buttons = document.querySelectorAll('.buttons button');
+  const clearBtn = document.getElementById('clear');
+  const equalsBtn = document.getElementById('equals');
+
+  let currentInput = '';
+
+  // Add click events to all buttons
+  buttons.forEach(button => {
+    button.addEventListener('click', () => {
+      const value = button.getAttribute('data-value');
+
+      if (value) {
+        // Append number or operator to current input
+        currentInput += value;
+        display.value = currentInput;
+      }
+    });
+  });
+
+  // Clear button
+  clearBtn.addEventListener('click', () => {
+    currentInput = '';
+    display.value = '';
+  });
+
+  // Equals button
+  equalsBtn.addEventListener('click', () => {
+    try {
+      const result = eval(currentInput);
+      display.value = result;
+      currentInput = result.toString();
+    } catch (error) {
+      display.value = 'Error';
+      currentInput = '';
+    }
+  });
+</script>
+</body>
+</html>

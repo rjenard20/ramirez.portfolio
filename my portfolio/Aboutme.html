@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+    <style>
+        /* Basic styles for header */
+        .header {
+            display: flex;
+            align-items: center;
+            background-color: #f2f2f2;
+            padding: 10px;
+        }
+        .header img {
+            height: 70px;
+            margin-right: 20px;
+        }
+        .header a {
+            margin-right: 15px;
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+        }
+        /* Optional: hover effect for links */
+        .header a:hover {
+            color: #007BFF;
+        }
+        .grid{
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* 3 columns */
+            grid-template-rows: repeat(2, auto);   /* 2 rows */
+            gap: 10px; /* optional: space between items */
+            justify-items: center; /* center items horizontally */
+            align-items: center;   /* center items vertically */
+            background-color: #FCF8F8;
+            max-height: fit-content;
+        }
+        .grid img{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 300px;
+            border: solid;
+            border-radius: 40px;
+        }
+        .gridey img{
+                border: solid;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <img src="pictureko.png" alt="Logo">
+        <a href="myhome.html">Home</a>
+        <a href="Aboutme.html">About Me</a>
+        <a href="project1.html">Project1</a>
+        <a href="#">Contact Details</a>
+    </div>
+    <div class="grid">
+
+        <div class="grid1"><img src="uno.jpg"><caption><h5><center>Age: 19 years old <br>From: Plaridel, Bulacan <br>birthday: June 20, 2006</h5></center></caption></div>
+        <div class="grid2"><img src="dos.jpg"><caption><h5><center>Gem Stone: Pearl<br> MBTI: INTJ <br>Living in: Plaridel, Bulacan</h5></center></caption></div>
+        <div class="grid3"><img src="tres.jpg"><caption><h5><center>Jenard's Hobbies: <br>I love Listening to musics, Watching Movies,<br> Playing Instruments, Playing sports, <br>Lastly, Learning new things by the use of different resources</h5></center></caption></div>
+        <div class="grid4"><img src="four.jpg"><caption><h5><center>Nationality: Filipino <br>School: Bulacan Polytechnic College <br>Program: Associate in Computer Technology</h5></center></caption></div>
+        <div class="grid5"><img src="five.jpg"><caption><h5><center>Year Level: 2nd Year College <br>Self description: Movie enthusiast<br></h5></center></caption></div>
+        <div class="grid6"><img src="anim.jpg"><caption><h5><center>Skills: <br>Critical Thinking Skills <br>Time Management Skills <br>Communication Skills</h5></center></caption></div>
+        </div>
+    <div class="gridey"><br>
+        <center>
+            <h2>Seminars Attended</h2>
+        </center>
+        <center><div class="grid1"><img src="DSWD.png"><caption><h5>KALAHI CIDSS Cash For Work Program for Higher Educatioms Insititutions(HEI's)</h5></center></caption></div></center>
+        <center><div class="grid2"><img src="RIZAL.jpg"><caption><h5><center>THE RIZAL'S GREAT WORK FOR THE PHILLIPINES (2025)</h5></center></caption></div></center>
+    </div>
+</body>
+</html>
